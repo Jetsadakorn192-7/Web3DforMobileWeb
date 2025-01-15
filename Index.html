@@ -3,24 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive VR-360</title>
+  <title>Gun Store LA Style</title>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-  <link rel="stylesheet" href="Style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+    }
+    .title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 24px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+  </style>
 </head>
 <body>
+  <div class="title">Welcome to LA Gun Store</div>
+
   <a-scene>
-    <!-- โมเดล 3D -->
-    <a-entity gltf-model="#gun-model" position="0 1.5 -3"></a-entity>
+    <!-- พื้นหลังร้าน -->
+    <a-sky color="#222"></a-sky>
 
-    <!-- พื้นหลัง VR-360 -->
-    <a-sky src="assets/sky360.jpg"></a-sky>
+    <!-- พื้นร้าน -->
+    <a-plane rotation="-90 0 0" width="20" height="20" color="#555" material="metalness: 0.6; roughness: 0.5"></a-plane>
 
-    <!-- แสงและกล้อง -->
-    <a-light type="ambient" color="#fff"></a-light>
-    <a-camera position="0 1.6 0">
-      <a-cursor></a-cursor>
-    </a-camera>
+    <!-- ชั้นวางปืน -->
+    <a-box position="0 1 -3" depth="0.5" height="6" width="6" color="#8B4513"></a-box>
+    <a-box position="0 2 -3" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+    <a-box position="0 1.5 -3" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+
+    <!-- ปืนวางบนชั้น -->
+    <a-entity gltf-model="model/m4a1.glb" position="1.2 1.6 -2.7" scale="0.4 0.4 0.4"></a-entity>
+    <a-entity gltf-model="model/scar-h.glb" position="-1.4 1.7 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
+    <a-entity gltf-model="model/Ammo Can.glb" position="0.9 1 -1" scale="1.8 1.8 1.8"></a-entity>
+    <a-entity gltf-model="model/Holographic.glb" position="-1.4 1.9 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
+    <a-entity gltf-model="model/Foregrip.glb" position="-1 1.6 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
+
+    <!-- ตู้กระจกโชว์ -->
+    <a-box position="0 0.5 -1" depth="2" height="1" width="4" color="#333" material="opacity: 0.8; transparent: true"></a-box>
+    <a-box position="0 0.3 -1" depth="1.9" height="0.8" width="3.8" color="#666"></a-box>
+
+    <!-- ป้ายราคา -->
+    <a-text value="M4A1 - $1200" color="#FFD700" width="3" position="-2.5 1.3 -3"></a-text>
+    <a-text value="AK-47 - $1000" color="#FFD700" width="3" position="0 1.3 -3"></a-text>
+    <a-text value="Sniper - $1500" color="#FFD700" width="3" position="2.5 1.3 -3"></a-text>
+
+    <!-- ไฟในร้าน -->
+    <a-light type="point" position="0 4 0" intensity="1" color="#FFFFFF"></a-light>
+    <a-light type="ambient" color="#BBBBBB"></a-light>
+
+    <!-- ตู้กระสุน -->
+    <a-box position="-5 1 -1" depth="2" height="1.5" width="1" color="#4B3621"></a-box>
+    <a-text value="Ammunition" color="#FFD700" width="2" position="-5 2 -1"></a-text>
   </a-scene>
 </body>
 </html>
