@@ -6,29 +6,15 @@
   <title>Gun Store LA Style</title>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-    }
-    .title {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: 24px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@latest/dist/aframe-physics-system.min.js"></script>
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
   <div class="title">Welcome to LA Gun Store</div>
 
   <a-scene>
-    <!-- พื้นหลังร้าน -->
-    <a-sky color="#222"></a-sky>
+    <!-- พื้นหลังร้าน
+    <a-sky color="#333"></a-sky> -->
 
     <!-- พื้นร้าน -->
     <a-plane rotation="-90 0 0" width="20" height="20" color="#555" material="metalness: 0.6; roughness: 0.5"></a-plane>
@@ -64,33 +50,49 @@
     <a-entity gltf-model="model\attachments\Laser.glb" position="1.8 3.4 -2.7" scale="2 2 2" rotation="0 -90 0"></a-entity>
     <a-entity gltf-model="model\attachments\Suppressor.glb" position="2.15 3.255 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
     <a-text value="UMP45" color="#FFD700" width="3" position="1.4 2.5 -2.7" rotation="0 0 0 "></a-text>
-    
-    
-    
-    
+
     <!-- ตู้กระจกโชว์ -->
     <a-box position="0 0.5 -1" depth="2" height="1" width="4" color="#333" material="opacity: 0.4; transparent: true"></a-box>
     <a-box position="0 0.3 -1" depth="1.9" height="0.8" width="3.8" color="#555"></a-box>
+    
     <!-- Ammo case -->
     <a-entity gltf-model="model\decoration\Ammo Can.glb" position="1.5 1 -1" scale="1.8 1.8 1.8" rotation="0 -45 0 "></a-entity>
     <a-entity gltf-model="model\gun\Pistol.glb"  position="0.8 0.73 -0.99" scale="0.3 0.3 0.3" rotation="270 38 0 "></a-entity>
-    
-
-   
-    
+    <a-entity gltf-model="model\decoration\Pistol Ammo.glb"  position="-1.5 1.1 -1.5" scale="2 2 2" rotation="0 45 0 "></a-entity>
     
     <!-- ไฟในร้าน -->
     <a-light type="point" position="0 4 0" intensity="1" color="#FFFFFF"></a-light>
     <a-light type="ambient" color="#BBBBBB"></a-light>
 
+    <!-- ไฟหลังร้าน>
+    <a-light type="ambient" intensity="0.3"></a-light>
+    <a-light type="spot" position="0 5 -5" intensity="1.5" angle="45" target="#counter"></a-light> -->
+
     <!-- ตู้กระสุน -->
     <a-box position="-5 1 -1" depth="2" height="1.5" width="1" color="#4B3621"></a-box>
     <a-text value="Ammunition" color="#FFD700" width="2" position="-5 2 -1"></a-text>
-    <a-box position="0 1.5 -5" depth="0.1" height="3" width="10" material="src: #wallTexture"></a-box>
-<a-assets>
-  <img id="wallTexture" src="path/to/texture.jpg">
-</a-assets>
-
+    <a-entity gltf-model="model\decoration\7.62x39mm.glb" position="-4.45 1.5 -1.5" scale="0.4 0.4 0.4" rotation="0 -45 0 "></a-entity>
+    <a-entity gltf-model="model\decoration\Bullets Pickup.glb" position="-4.45 1.55 -1.1" scale="0.15 0.15 0.15" rotation="0 -90 0 "></a-entity>
+    <a-entity gltf-model="model\decoration\Bullet.glb" position="-4.45 1.55 -0.7" scale="1.5 1.5 1.5" rotation="0 90 -90 "></a-entity>
+    
+    <!-- พื้น -->
+    <a-plane rotation="-90 0 0" position="0 0 0" width="20" height="20" color="#444"></a-plane>
+    
+    <!-- กำแพง --> 
+    <a-box position="1 2 -10" depth="0.1" height="4" width="15" color="#333"></a-box> <!-- กำแพงหลัง -->
+    <a-box position="-2 2 -4" depth="0.1" height="4" width="12" color="#333"></a-box> <!-- กำแพงกั้นร้าน -->
+    <a-box position="8 2 0" depth="20" height="4" width="0.1" color="#333"></a-box> <!-- กำแพงขวา -->
+    <a-box position="-6 2 0" depth="20" height="4" width="0.1" color="#333"></a-box> <!-- กำแพงซ้าย -->
+    
+    <!-- เคาน์เตอร์ -->
+    <a-box id="counter" position="0 0.3 -8" depth="1" height="1" width="4" color="#555"></a-box>
+    
+    <!-- ปืนและ Pegboard -->
+    <a-plane position="0 2 -9.8" rotation="0 0 0" width="6" height="3" 
+            material="color: #666; src: https://cdn.pixabay.com/photo/2015/09/04/23/24/pegboard-922915_1280.jpg">
+    </a-plane>
+    <a-entity gltf-model="model\gun\m4a1.glb" position="-1 1.5 -9.5" rotation="0 0 0" scale="0.5 0.5 0.5"></a-entity>
   </a-scene>
+
 </body>
 </html>
