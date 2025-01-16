@@ -73,6 +73,7 @@
     <a-box position="0 0.3 -1" depth="1.9" height="0.8" width="3.8" color="#555"></a-box>
     <!-- Ammo case -->
     <a-entity gltf-model="model\decoration\Ammo Can.glb" position="1.5 1 -1" scale="1.8 1.8 1.8" rotation="0 -45 0 "></a-entity>
+    <a-entity gltf-model="model\gun\Pistol.glb"  position="0.8 0.73 -0.99" scale="0.3 0.3 0.3" rotation="270 38 0 "></a-entity>
     
 
    
@@ -85,6 +86,11 @@
     <!-- ตู้กระสุน -->
     <a-box position="-5 1 -1" depth="2" height="1.5" width="1" color="#4B3621"></a-box>
     <a-text value="Ammunition" color="#FFD700" width="2" position="-5 2 -1"></a-text>
+    <a-box position="0 1.5 -5" depth="0.1" height="3" width="10" material="src: #wallTexture"></a-box>
+<a-assets>
+  <img id="wallTexture" src="path/to/texture.jpg">
+</a-assets>
+
   </a-scene>
 </body>
 </html>
