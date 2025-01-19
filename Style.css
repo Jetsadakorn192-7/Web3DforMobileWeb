@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
   background: #000;
 }
+
 .title {
   position: absolute;
   top: 10px;
@@ -11,4 +12,65 @@ body {
   color: white;
   font-size: 24px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+#gun-menu {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+#gun-menu button {
+  display: block;
+  width: 120px;
+  margin: 5px 0;
+  padding: 10px;
+  background: #444;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#gun-menu button:hover {
+  background-color: #666;
+}
+
+#gun-info {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  text-align: center;
+  z-index: 10;
+}
+
+#gun-info button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: #ff5722;
+  color: white;
+  cursor: pointer;
+}
+
+#gun-info button:hover {
+  background: #e64a19;
+}
+
+.recommendation {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #FFD700;
 }
