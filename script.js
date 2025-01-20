@@ -105,3 +105,4 @@ gunMenu.addEventListener("click", (event) => {
 closeInfoButton.addEventListener("click", () => {
   gunInfo.style.display = "none";
 });
+
