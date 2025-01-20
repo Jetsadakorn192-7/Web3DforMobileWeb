@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-
+  scale=1.0">
   <title>Gun Store LA Style</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
@@ -10,209 +11,410 @@
   <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-  <div class="title">Welcome to LA Gun Store</div>
+  <div class="title">Welcome To My Website</div>
   <!-- เมนูปืน -->
-  <div id="gun-menu" class="sidebar">
-    <button data-gun="m4a1">M4A1</button>
-    <button data-gun="scar-h">Scar-H</button>
-    <button data-gun="glock">Glock</button>
-    <button data-gun="revolver">Revolver</button>
-    <button data-gun="awp">AWP</button>
-    <button data-gun="ump45">UMP45</button>
-  </div>
+    <div id="gun-menu" class="sidebar">
+      <button data-gun="m4a1">M4A1</button>
+      <button data-gun="scar-h">Scar-H</button>
+      <button data-gun="glock">Glock</button>
+      <button data-gun="revolver">Revolver</button>
+      <button data-gun="awp">AWP</button>
+      <button data-gun="ump45">UMP45</button>
+      <button data-gun="sig-mpx">Sig MPX</button>
+      <button data-gun="remington-870">Remington 870</button>
+      <button data-gun="mk14">MK14</button>
+      <button data-gun="mp5">MP5</button>
+      <button data-gun="sig-p320">Sig P320</button>
+      <button data-gun="p226">P226</button>
+      <button data-gun="revolver-short">Revolver Short</button>
+      <button data-gun="b&t-apc9k-pro">B&T APC9k Pro</button>
+    </div>
 
   <!-- ข้อมูลปืน -->
-  <div id="gun-info" class="info-panel" style="display: none;">
-    <h2 id="gun-name"></h2>
-    <p id="gun-description"></p>
-    <p id="gun-recommendation" class="recommendation"></p>
-    <button id="close-info">ปิด</button>
-  </div>
-
-  <a-scene>
-    <!-- กรอบรูปของ Benz -->
-  <a-box position="-4 2 6" depth="0.1" height="3" width="2" color="#8B4513"></a-box>
-  <a-plane 
-  position="-4 2 6.05" 
-  height="2.8" 
-  width="1.8" 
-  material="src: url(model/organizer/benz.jpg);"></a-plane>
-
-  <!-- กรอบรูปของ Chefvy -->
-  <a-box position="-6 2 6" depth="0.1" height="3" width="2" color="#8B4513"></a-box>
-  <a-plane 
-  position="-6 2 6.05" 
-  height="2.8" 
-  width="1.8" 
-  material="src: url(model/organizer/chefvy.jpg);"></a-plane>
-
-  <!-- กรอบรูปของ Pooh -->
-  <a-box position="-8 2 6" depth="0.1" height="3" width="2" color="#8B4513"></a-box>
-  <a-plane 
-  position="-8 2 2" 
-  height="2.8" 
-  width="1.8" 
-  material="src: url(model/organizer/pooh.jpg);"></a-plane>
-
-    <!-- กรอบรูปผู้จัดทำ -->
-    <a-box position="-4 2 6" depth="0.1" height="3" width="2" color="#8B4513"></a-box>
-    <a-plane 
-    position="-4 2 6.05" 
-    height="2.8" 
-    width="1.8" 
-    material="src: url(model/organizer/benz.jpg);"></a-plane>
-
+    <div id="gun-info" class="info-panel" style="display: none;">
+      <h2 id="gun-name"></h2>
+      <p id="gun-description"></p>
+      <p id="gun-country"></p> <!-- แสดงประเทศที่ผลิต -->
+      <p id="gun-ammo"></p> <!-- แสดงขนาดกระสุน -->
+      <p id="gun-recommendation" class="recommendation"></p> <!-- แสดงคำแนะนำสำหรับการใช้งาน -->
+      <button id="close-info">ปิด</button>
+    </div>
     
+  <a-scene>
+    
+  <!-- ทางเดินร้าน -->>
+    <!-- กรอบรูปของ Benz -->
+      <a-box position="7.9 2 -1" depth="0.1" height="3" width="2" rotation="0 90 0" color="#8B4513"></a-box>
+      <a-plane 
+      position="7.8 2 -1" 
+      height="2.8" 
+      width="1.8" 
+      rotation="0 -90 0"
+      material="src: url(model/organizer/benz.jpg);"></a-plane>
+
+    <!-- กรอบรูปของ Chefvy -->
+      <a-box position="7.9 2 -4" depth="0.1" height="3" width="2" rotation="0 90 0" color="#8B4513"></a-box>
+      <a-plane 
+      position="7.8 2 -4" 
+      height="2.8" 
+      width="1.8" 
+      rotation="0 -90 0"
+      material="src: url(model/organizer/chefvy.jpg);"></a-plane>
+
+    <!-- กรอบรูปของ Pooh -->
+      <a-box position="7.9 2 -7" depth="0.1" height="3" width="2" rotation="0 90 0" color="#8B4513"></a-box>
+      <a-plane 
+      position="7.8 2 -7" 
+      height="2.8" 
+      width="1.8" 
+      rotation="0 -90 0"
+      material="src: url(model/organizer/pooh.jpg);"></a-plane>
 
     <!-- กล้อง (ผู้เล่น) -->
-    <a-camera position="0 1.6 0" dynamic-body>
-      <a-cursor color="#FFD700"></a-cursor>
-    </a-camera>
+      <a-camera position="0 1.6 0" dynamic-body>
+        <a-cursor color="#FFD700"></a-cursor>
+      </a-camera>
   
-
+  <!-- หน้าร้าน -->>
     <!-- พื้นร้าน -->
-    <a-plane rotation="-90 0 0" width="20" height="20" color="#555" material="metalness: 0.6; roughness: 0.5"></a-plane>
-    <a-entity gltf-model="model\decoration\Sofa_Customer.glb" position="3.2 0.5 7" scale="2 2 2" rotation="0 90 0"></a-entity>
-    <a-entity gltf-model="model\decoration\Trashcan.glb" position="3.2 0.1 9" scale="1 1 1" rotation="0 90 0"></a-entity>
+      <a-plane rotation="-90 0 0" width="20" height="20" color="#555" material="metalness: 0.6; roughness: 0.5"></a-plane>
+      <a-entity gltf-model="model\decoration\Sofa_Customer.glb" position="3.2 0.5 7" scale="2 2 2" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="model\decoration\Trashcan.glb" position="-5.5 0.1 9" scale="1 1 1" rotation="0 90 0"></a-entity>
 
     <!-- ชั้นวางปืนหลัก -->
-    <a-box position="0 1 -3" depth="0.5" height="6" width="6" color="#8B4513"></a-box>
-    <a-box position="0 4 -2.7" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
-    <a-box position="0 0 -2.7" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
-    <a-box position="3 2 -2.7" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
-    <a-box position="-3 2 -2.7" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
+      <a-box position="0 1 -3" depth="0.5" height="6" width="6" color="#8B4513"></a-box>
+      <a-box position="0 4 -2.7" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+      <a-box position="0 0 -2.7" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+      <a-box position="3 2 -2.7" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
+      <a-box position="-3 2 -2.7" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
 
     <!-- ชั้นวางปืนด้านซ้าย -->
-    <a-box position="-6 1 3" depth="0.5" height="6" width="6" rotation="0 -90 0" color="#8B4513"></a-box>
-    <a-entity gltf-model="model\knife\Knife.glb" position="-0.5 0.8 -0.3" scale="0.5 0.5 0.5" rotation="90 180 90"></a-entity>
-    <a-entity gltf-model="model\knife\Sword Wall Mount.glb" position="-5.9 2.8 -1" scale="1.5 1.5 1.5" rotation="0 90 0"></a-entity>
-    <a-entity gltf-model="model\gun\Sig_MPX.glb" position="-5.7 3 1.5" scale="6 6 6" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\gun\Remington_870.glb" position="-5.7 3.3 4.2" scale="0.5 0.5 0.5" rotation="0 90 0"></a-entity>
-    <a-entity gltf-model="model\gun\MK14.glb" position="-5.7 2 1.5" scale="12 12 12" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\gun\Mp5.glb" position="-5.7 2 4.5" scale="7 7 7" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\gun\Sig_p320.glb" position="-5.7 1 1.5" scale="7 7 7" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\gun\P226.glb" position="-5.7 1 3" scale="4 4 4" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\gun\Revolver_short.glb" position="-5.7 1 4.5" scale="3 3 3" rotation="0 360 0"></a-entity>
-    <!-- ตู้แช่น้ำ -->>
-    <a-entity gltf-model="model\decoration\Can_Fridge.glb" position="-5 0 11" scale="0.7 0.7 0.7" rotation="0 90 0"></a-entity>
+      <a-box position="-6 1 3" depth="0.5" height="6" width="6" rotation="0 -90 0" color="#8B4513"></a-box>
+      <a-box position="-5.7 4 3" depth="0.1" height="0.2" width="6" rotation="0 -90 0" color="#4B3621"></a-box>
+      <a-box position="-5.7 0 3" depth="0.1" height="0.2" width="6" rotation="0 -90 0" color="#4B3621"></a-box>
+      <a-box position="-5.7 1 6" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
+      <a-box position="-5.7 1 0" depth="0.1" height="0.1" width="6" rotation="0 0 90" color="#4B3621"></a-box>
+      
+    <!-- ปืนชั้นวางด้านซ้าย -->
+      <!-- Knife -->
+        <a-entity gltf-model="model\knife\Knife.glb" 
+        position="-0.5 0.8 -0.3" 
+        scale="0.5 0.5 0.5" 
+        rotation="90 180 90">
+        </a-entity>
+      <!-- Wall Mount -->
+        <a-entity gltf-model="model\knife\Sword Wall Mount.glb" 
+        position="-5.9 2.8 -1.5" 
+        scale="1.5 1.5 1.5" 
+        rotation="0 90 0"></a-entity>
+      <!-- Sig_Mpx -->
+        <a-entity gltf-model="model\gun\Sig_MPX.glb" 
+        position="-5.7 3 1.5" 
+        scale="6 6 6" 
+        rotation="0 360 0"></a-entity>
+        <!-- Red dot -->
+          <a-entity gltf-model="model\attachments\Red Dot Sight.glb" 
+          position="-5.7 3.3 1.6" 
+          scale="3.5 3.5 3.5" 
+          rotation="0 0 0"></a-entity>
+        <!-- Suppressor -->
+          <a-entity gltf-model="model\attachments\Suppressor.glb" 
+          position="-5.7 3.185 0.95"  
+          scale="2.5 2.5 2.5" 
+          rotation="0 0 0"></a-entity>
+        <a-text value="Sig Mpx" color="#FFD700" width="3" position="-5.7 2.9 1.2" rotation="0 90 0"></a-text>
+      <!-- Remington_870 -->
+        <a-entity gltf-model="model\gun\Remington_870.glb" 
+        position="-5.7 3.3 4.2" 
+        scale="0.5 0.5 0.5" 
+        rotation="0 90 0"></a-entity>
+        <a-text value="Remington870" color="#FFD700" width="3" position="-5.7 3 4.5" rotation="0 90 0"></a-text>
+      <!-- MK14 -->
+        <a-entity gltf-model="model\gun\MK14.glb" 
+        position="-5.7 2 1.5" 
+        scale="12 12 12" 
+        rotation="0 360 0"></a-entity>
+        <a-text value="MK14" color="#FFD700" width="3" position="-5.7 1.8 1.5" rotation="0 90 0"></a-text>
+      <!-- Mp5 -->
+        <a-entity gltf-model="model\gun\Mp5.glb" 
+        position="-5.7 2 4.5" 
+        scale="7 7 7" 
+        rotation="0 360 0"></a-entity>
+        <a-text value="MP5" color="#FFD700" width="3" position="-5.7 1.8 4.2" rotation="0 90 0"></a-text>
+      <!-- Sig_p266 -->
+        <a-entity gltf-model="model\gun\P226.glb" 
+        position="-5.7 0.9 3.5" 
+        scale="4 4 4" 
+        rotation="0 360 0"></a-entity>
+        <a-text value="Sig P266" color="#FFD700" width="3" position="-5.7 0.5 3.7" rotation="0 90 0"></a-text>
+      <!-- Revolver_short -->
+        <a-entity gltf-model="model\gun\Revolver_short.glb" 
+        position="-5.7 0.9 4.6" 
+        scale="3 3 3" 
+        rotation="0 360 0"></a-entity>
+        <a-text value="Revolver" color="#FFD700" width="3" position="-5.7 0.5 5.2" rotation="0 90 0"></a-text>
+      <!-- B&T APC9k Pro -->
+        <a-entity gltf-model="model\gun\B&T_APC9k_Pro.glb" 
+        position="-5.7 0.9 1.8" 
+        scale="0.4 0.4 0.4" 
+        rotation="0 90 0"></a-entity> 
+        <!-- Red dot -->
+          <a-entity gltf-model="model\attachments\Red Dot Sight.glb" 
+          position="-5.7 1.16 1.6" 
+          scale="3.5 3.5 3.5" 
+          rotation="0 0 0"></a-entity>
+        <a-text value="B&T APC9k Pro" color="#FFD700" width="3" position="-5.7 0.5 2" rotation="0 90 0"></a-text> 
+        <!-- Suppressor -->
+          <a-entity gltf-model="model\attachments\Suppressor.glb" 
+          position="-5.7 1.09 1"  
+          scale="2.5 2.5 2.5" 
+          rotation="0 0 0"></a-entity>
 
-    <!-- ปืนวางบนชั้น -->
-    <!-- M4a1-->
-    <a-entity gltf-model="model\gun\m4a1.glb" position="1.2 1.6 -2.7" scale="0.4 0.4 0.4"></a-entity>
-    <a-text value="M4A1" color="#FFD700" width="3" position="1.2 1.2 -2.5"></a-text>
-    
-    <!-- Scar-H -->
-    <a-entity gltf-model="model\gun\scar-h.glb" position="-1.4 1.7 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Holographic.glb" position="-1.4 1.9 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Foregrip.glb" position="-1 1.6 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Suppressor.glb" position="-0.2 1.732 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
-    <a-text value="Scar-H" color="#FFD700" width="3" position="-1.6 1.2 -2.5"></a-text>
-    
-    <!-- glock -->
-    <a-entity gltf-model="model\gun\Glock.glb" position="-0.2 0.8 -1" scale="1.2 1.2 1.2" rotation="0 -45 0"></a-entity>
-    <a-text value="Glock" color="#FFD700" width="3" position="-0.1 0.8 -0.8" rotation="-90 45 0 "></a-text>
-    
-    <!-- revolver  -->
-    <a-entity gltf-model="model\gun\Revolver.glb" position="-1.3 0.8 -1" scale="1.2 1.2 1.2" rotation="0 -45 0"></a-entity>
-    <a-text value="Revolver" color="#FFD700" width="3" position="-1.15 0.8 -0.8" rotation="-90 45 0 "></a-text>
-    
-    <!-- AWP  -->
-    <a-entity gltf-model="model\gun\AWP.glb" position="-2 3 -2.7" scale="0.37 0.37 0.37" rotation="0 0 0"></a-entity>
-    <a-text value="AWP" color="#FFD700" width="3" position="-1.6 2.6 -2.5" rotation="0 0 0 "></a-text>
-    
-    <!-- UMP45  -->
-    <a-entity gltf-model="model\gun\ump45.glb" position="1.4 3.2 -2.7" scale="3 3 3" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Mlok.glb" position="1.78 3.12 -2.7" scale="3 3 3" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Red Dot Sight.glb" position="1.3 3.4 -2.7" scale="3.5 3.5 3.5 a" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Laser.glb" position="1.8 3.4 -2.7" scale="2 2 2" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="model\attachments\Suppressor.glb" position="2.15 3.255 -2.7" scale="2.5 2.5 2.5" rotation="0 -90 0"></a-entity>
-    <a-text value="UMP45" color="#FFD700" width="3" position="1.4 2.5 -2.7" rotation="0 0 0 "></a-text>
-    
-    <!-- Soldier  -->
-    <a-entity gltf-model="model\decoration\Soldier.glb" position="-5 0 -4" scale="0.08 0.08 0.08" rotation="0 150 0"></a-entity>
-    
+          <a-entity gltf-model="model\decoration\Safe.glb" 
+          position="-5.7 1.09 -1.7"  
+          scale="2.2 2.2 2.2" 
+          rotation="0 0 0"></a-entity>
+
+    <!-- ตู้แช่น้ำ -->
+      <a-entity gltf-model="model\decoration\Can_Fridge.glb" 
+      position="-5.5 0 11" 
+      scale="0.7 0.7 0.7" 
+      rotation="0 90 0"></a-entity>
+
+    <!-- ปืนชั้นวางหลัก -->
+      <!-- M4a1-->
+        <a-entity gltf-model="model\gun\m4a1.glb" 
+        position="1.2 1.6 -2.7" 
+        scale="0.4 0.4 0.4"></a-entity>
+        <a-text value="M4A1" color="#FFD700" width="3" position="1.2 1.2 -2.5"></a-text>  
+      <!-- Scar-H -->
+        <a-entity gltf-model="model\gun\scar-h.glb" 
+        position="-1.4 1.7 -2.7" 
+        scale="2.5 2.5 2.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Holographic.glb" 
+        position="-1.4 1.9 -2.7" 
+        scale="2.5 2.5 2.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Foregrip.glb" 
+        position="-1 1.6 -2.7" 
+        scale="2.5 2.5 2.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Suppressor.glb" 
+        position="-0.2 1.732 -2.7" 
+        scale="2.5 2.5 2.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-text value="Scar-H" color="#FFD700" width="3" 
+        position="-1.6 1.2 -2.5"></a-text>
+      <!-- AWP  -->
+        <a-entity gltf-model="model\gun\AWP.glb" 
+        position="-2 3 -2.7" 
+        scale="0.37 0.37 0.37" 
+        rotation="0 0 0"></a-entity>
+        <a-text value="AWP" color="#FFD700" width="3" 
+        position="-1.6 2.6 -2.5" 
+        rotation="0 0 0 "></a-text>
+      <!-- UMP45  -->
+        <a-entity gltf-model="model\gun\ump45.glb" 
+        position="1.4 3.2 -2.7" 
+        scale="3 3 3" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Mlok.glb" 
+        position="1.78 3.12 -2.7" 
+        scale="3 3 3" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Red Dot Sight.glb" 
+        position="1.3 3.4 -2.7" 
+        scale="3.5 3.5 3.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Laser.glb" 
+        position="1.8 3.4 -2.7" 
+        scale="2 2 2" 
+        rotation="0 -90 0"></a-entity>
+        <a-entity gltf-model="model\attachments\Suppressor.glb" 
+        position="2.15 3.255 -2.7" 
+        scale="2.5 2.5 2.5" 
+        rotation="0 -90 0"></a-entity>
+        <a-text value="UMP45" color="#FFD700" width="3" 
+        position="1.4 2.5 -2.7" 
+        rotation="0 0 0 "></a-text>
+
     <!-- ตู้กระจกโชว์ -->
-    <a-box position="0 0.5 -1" depth="2" height="1" width="4" color="#333" material="opacity: 0.4; transparent: true"></a-box>
-    <a-box position="0 0.3 -1" depth="1.9" height="0.8" width="3.8" color="#555"></a-box>
-    
-    <!-- Ammo case -->
-    <a-entity gltf-model="model\decoration\Ammo Can.glb" position="1.5 1 -1" scale="1.8 1.8 1.8" rotation="0 -45 0 "></a-entity>
-    <a-entity gltf-model="model\gun\Pistol.glb"  position="0.8 0.73 -0.99" scale="0.3 0.3 0.3" rotation="270 38 0 "></a-entity>
-    <a-entity gltf-model="model\decoration\Pistol Ammo.glb"  position="-1.5 1.1 -1.5" scale="2 2 2" rotation="0 45 0 "></a-entity>
-    <a-entity gltf-model="model\decoration\Ammo_Shotgun.glb"  position="-1.5 1.1 -1." scale="1.7 1.7 1.7" rotation="0 45 0 "></a-entity>
+      <!-- glock -->
+        <a-entity gltf-model="model\gun\Glock.glb" 
+        position="-0.2 0.8 -1" 
+        scale="1.2 1.2 1.2" 
+        rotation="0 -45 0"></a-entity>
+        <a-text value="Glock" color="#FFD700" width="3" 
+        position="-0.1 0.8 -0.8" 
+        rotation="-90 45 0 "></a-text>
+      <!-- revolver  -->
+        <a-entity gltf-model="model\gun\Revolver.glb" 
+        position="-1.3 0.8 -1" 
+        scale="1.2 1.2 1.2" 
+        rotation="0 -45 0"></a-entity>
+        <a-text value="Revolver" color="#FFD700" width="3" 
+        position="-1.15 0.8 -0.8" 
+        rotation="-90 45 0 "></a-text> 
+      <!-- Sig_p320 -->
+        <a-entity gltf-model="model\gun\Sig_p320.glb" 
+        position="0.8 0.8 -1" 
+        scale="5 5 5 " 
+        rotation="0 -45 90"></a-entity>
+        <a-text value="Sig P320" color="#FFD700" width="3" 
+        position="0.9 0.8 -0.8" 
+        rotation="-90 45 0 "></a-text> 
+      <!-- Ammo case -->
+        <a-entity gltf-model="model\decoration\Ammo Can.glb" 
+        position="1.5 1 -1" 
+        scale="1.8 1.8 1.8" 
+        rotation="0 -45 0 "></a-entity>
+        <a-entity gltf-model="model\decoration\Pistol Ammo.glb"  
+        position="-1.5 1.1 -1.5" 
+        scale="2 2 2" 
+        rotation="0 45 0 "></a-entity>
+        <a-entity gltf-model="model\decoration\Ammo_Shotgun.glb"  
+        position="-1.5 1.1 -1" 
+        scale="1.7 1.7 1.7" 
+        rotation="0 45 0 "></a-entity>
+      <a-box position="0 0.5 -1" depth="2" height="1" width="4" color="#333" material="opacity: 0.4; transparent: true"></a-box>
+      <a-box position="0 0.3 -1" depth="1.9" height="0.8" width="3.8" color="#555"></a-box>
     
     <!-- ไฟในร้าน -->
-    <a-light type="point" position="0 4 0" intensity="1" color="#FFFFFF"></a-light>
-    <a-light type="ambient" color="#BBBBBB"></a-light>
-    <a-entity gltf-model="model\decoration\Lamp.glb" position="-4.7 4.04 9" scale="1 1 1" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\decoration\Lamp.glb" position="2.7 4.04 9" scale="1 1 1" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\decoration\Lamp.glb" position="-4.7 4.04 -2" scale="1 1 1" rotation="0 360 0"></a-entity>
-    <a-entity gltf-model="model\decoration\Lamp.glb" position="2.7 4.04 -2" scale="1 1 1" rotation="0 360 0"></a-entity>
+      <a-light type="point" 
+      position="0 4 0" intensity="1" color="#FFFFFF"></a-light>
+      <a-light type="ambient" color="#BBBBBB"></a-light>
+      <a-entity gltf-model="model\decoration\Lamp.glb" 
+      position="-4.7 4.04 9" 
+      scale="1 1 1" 
+      rotation="0 360 0"></a-entity>
+      <a-entity gltf-model="model\decoration\Lamp.glb" 
+      position="2.7 4.04 9" 
+      scale="1 1 1" 
+      rotation="0 360 0"></a-entity>
+      <a-entity gltf-model="model\decoration\Lamp.glb" 
+      position="-4.7 4.04 -2" 
+      scale="1 1 1" 
+      rotation="0 360 0"></a-entity>
+      <a-entity gltf-model="model\decoration\Lamp.glb" 
+      position="2.7 4.04 -2" 
+      scale="1 1 1" 
+      rotation="0 360 0"></a-entity>
 
+      <a-entity gltf-model="model\decoration\Table.glb" 
+      position="1.5 0 6.6" 
+      scale="2 2 2" 
+      rotation="0 90 0"></a-entity>
+      
+    <!-- ธงชาติอเมริกา -->
+      <a-plane 
+      position="-4 3 -3.2" 
+      rotation="0 0 0" 
+      width="4" 
+      height="2" 
+      material="src: url(model/decoration/Flag_of_the_United_States.png);">
+      </a-plane>
+      
+    <!-- หลังร้าน-->
+      <!-- Soldier  -->
+        <a-entity gltf-model="model\decoration\Soldier.glb" 
+        position="-5 0 -4" 
+        scale="0.08 0.08 0.08" 
+        rotation="0 150 0"></a-entity>
 
-    <!-- ตู้กระสุน -->
-    <a-box position="-5 1 -1" depth="2" height="1.5" width="1" color="#4B3621"></a-box>
-    <a-text value="Ammunition" color="#FFD700" width="2" position="-5 2 -1"></a-text>
-    <a-entity gltf-model="model\decoration\7.62x39mm.glb" position="-4.45 1.5 -1.5" scale="0.4 0.4 0.4" rotation="0 -45 0 "></a-entity>
-    <a-entity gltf-model="model\decoration\Bullets Pickup.glb" position="-4.45 1.55 -1.1" scale="0.15 0.15 0.15" rotation="0 -90 0 "></a-entity>
-    <a-entity gltf-model="model\decoration\Bullet.glb" position="-4.45 1.55 -0.7" scale="1.5 1.5 1.5" rotation="0 90 -90 "></a-entity>
-    
+      <!-- หลอดไฟ -->
+        <a-entity gltf-model="model\decoration\Lamp.glb" 
+        position="-5 4.04 -4" 
+        scale="0.08 0.08 0.08" 
+        rotation="0 0 0"></a-entity>
+      
     <!-- พื้น -->
-    <a-plane rotation="-90 0 0" position="0 0 0" width="20" height="20" color="#444"></a-plane>
+      <a-plane rotation="-90 0 0" position="0 0 0" width="20" height="20" color="#444"></a-plane>
     
     <!-- กำแพง --> 
-    <a-box position="1 2 -10" depth="0.1" height="4" width="15" color="#333" static-body></a-box> <!-- กำแพงหลัง -->
-    <a-box position="-2 2 -3.3" depth="0.1" height="4" width="12" color="#333" static-body></a-box> <!-- กำแพงกั้นร้าน -->
-    <a-box position="8 2 0" depth="20" height="4" width="0.1" color="#333" static-body></a-box> <!-- กำแพงขวา -->
-    <a-box position="-6 2 0" depth="20" height="4" width="0.1" color="#333"static-body></a-box> <!-- กำแพงซ้าย -->
-    <a-box position="1 2 10" depth="0.1" height="4" width="15" color="#333" static-body></a-box> <!-- กำแพงหลัง -->
-    <a-box position="4 2 -2" depth="0.1" height="4" width="6" rotation="0 90 0" color="#333" static-body></a-box> <!-- กำแพงทางเดินร้าน -->
-    <a-box position="4 2 8" depth="0.1" height="4" width="6" rotation="0 90 0" color="#333" static-body></a-box> <!-- กำแพงทางเดินร้าน -->
+      <a-box position="1 2 -10" depth="0.1" height="4" width="15" color="#333" static-body></a-box> <!-- กำแพงหลัง -->
+      <a-box position="-2 2 -3.3" depth="0.1" height="4" width="12" color="#333" static-body></a-box> <!-- กำแพงกั้นร้าน -->
+      <a-box position="8 2 0" depth="20" height="4" width="0.1" color="#333" static-body></a-box> <!-- กำแพงขวา -->
+      <a-box position="-6 2 0" depth="20" height="4" width="0.1" color="#333"static-body></a-box> <!-- กำแพงซ้าย -->
+      <a-box position="1 2 10" depth="0.1" height="4" width="15" color="#333" static-body></a-box> <!-- กำแพงหลัง -->
+      <a-box position="4 2 -2" depth="0.1" height="4" width="6" rotation="0 90 0" color="#333" static-body></a-box> <!-- กำแพงทางเดินร้าน -->
+      <a-box position="4 2 8" depth="0.1" height="4" width="6" rotation="0 90 0" color="#333" static-body></a-box> <!-- กำแพงทางเดินร้าน -->
     
     <!-- เพดาน -->
-    <a-plane 
-    position="0 4 0"         
-    rotation="90 0 0"         
-    width="20"                
-    height="20"               
-    color="#1111"              
-    material="metalness: 0.5; roughness: 0.6;"> <!-- ความเงา -->
-    </a-plane>
-    
-    <!-- ธงชาติอเมริกา -->
-    <a-plane 
-    position="-4 3 -3.2" 
-    rotation="0 0 0" 
-    width="4" 
-    height="2" 
-    material="src: url(model/decoration/Flag_of_the_United_States.png);">
-    </a-plane>
+      <a-plane 
+      position="0 4 0"         
+      rotation="90 0 0"         
+      width="20"                
+      height="20"               
+      color="#1111"              
+      material="metalness: 0.5; roughness: 0.6;"> <!-- ความเงา -->
+      </a-plane>
     
     <!-- Blueprint ของ M4A1 -->
-    <a-plane 
-    position="-5.8 2 -6.7"          
-    rotation="0 90 0"           
-    width="4"                   
-    height="3"                  
-    material="src: url(model\decoration\Blueprint_m4a1.jpg);"></a-plane>
+      <a-plane 
+      position="-5.8 2 -6.7"          
+      rotation="0 90 0"           
+      width="4"                   
+      height="3"                  
+      material="src: url(model\decoration\Blueprint_m4a1.jpg);">
+      </a-plane>
 
     <!-- Blueprint ของ Glock -->
-    <a-plane 
-    position="5 2 -9.8"           
-    rotation="0 0 0"          
-    width="1"                   
-    height="2"                  
-    material="src: url(model\decoration\Blueprint_Glock.png);"></a-plane>
+      <a-plane 
+      position="5 2 -9.8"           
+      rotation="0 0 0"          
+      width="1"                   
+      height="2"                  
+      material="src: url(model\decoration\Blueprint_Glock.png);">
+      </a-plane>
  
     <!-- เคาน์เตอร์ -->
-    <a-box id="counter" position="0 0.3 -8" depth="1" height="1" width="4" color="#555"></a-box>
+      <a-box id="counter" position="0 0.3 -8" depth="1" height="1" width="4" color="#555"></a-box>
     
     <!-- ปืนและ Pegboard -->
-    <a-plane position="0 2 -9.8" rotation="0 0 0" width="6" height="3" 
-            material="color: #666; src: https://cdn.pixabay.com/photo/2015/09/04/23/24/pegboard-922915_1280.jpg">
-    </a-plane>
-  </a-scene>
+      <a-plane position="0 2 -9.8" rotation="0 0 0" width="6" height="3" 
+              material="color: #666; src: https://cdn.pixabay.com/photo/2015/09/04/23/24/pegboard-922915_1280.jpg">
+      </a-plane>
+      <a-box position="0 3.5 -9.8" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+      <a-box position="0 0.5 -9.8" depth="0.1" height="0.2" width="6" color="#4B3621"></a-box>
+      <a-box position="3 2 -9.8" depth="0.1" height="0.1" width="3.2" rotation="0 0 90" color="#4B3621"></a-box>
+      <a-box position="-3 2 -9.8" depth="0.1" height="0.1" width="3.2" rotation="0 0 90" color="#4B3621"></a-box>
+    <!-- กระถางต้นไม้ -->
+      <a-entity gltf-model="model\decoration\Houseplant.glb" 
+      position="3.5 0 9.6" 
+      scale="2 2 2" 
+      rotation="0 90 0"></a-entity>
 
+      <a-entity gltf-model="model\decoration\Houseplant.glb" 
+      position="-5 0 -9.2" 
+      scale="2 2 2" 
+      rotation="0 90 0"></a-entity>
+
+      <a-entity gltf-model="model\decoration\Houseplant.glb" 
+      position="3 0 -4.2" 
+      scale="1.5 1.5 1.5" 
+      rotation="0 90 0"></a-entity>  
+
+    <!-- Sound Background-->
+      <!-- Jazz -->
+      <!-- <a-sound 
+        src="url(model\music\10 Minutes Timer for Relax. Jazz Night Beach Music.mp3)" 
+        autoplay="true" 
+        loop="true" 
+        volume="0.3" 
+        position="0 2 0">
+      </a-sound> -->
+
+      <!-- Call of Duty -->
+      <a-sound 
+        src="url(model\music\Modern Warfare 3 [Soundtrack] - Track  01 - Call Of Duty_ MW3 Theme.mp3)" 
+        autoplay="true" 
+        loop="true" 
+        volume="0.1" 
+        position="0 2 0">
+      </a-sound>
+  </a-scene>
+  
   <script src="script.js"></script>
 
 </body>
